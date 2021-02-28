@@ -1,0 +1,93 @@
+# ===================================================================
+# COMMON SPRING BOOT PROPERTIES
+#               
+# ===================================================================
+
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+
+logging:
+  level:
+    root: WARN
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+      springframework:
+        web: DEBUG
+
+
+# ----------------------------------------
+# IDENTITY (ContextIdApplicationContextInitializer)
+# ----------------------------------------
+
+spring:
+  application:
+    name: Trini
+    admin:
+      enable: true
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+    image:
+      margin: 3.0
+      width: 90.0
+
+  # ----------------------------------------
+  # ENVIRONMENT (dev/prod)
+  # modify here to switch between environments
+  # ----------------------------------------
+
+  profiles:
+    active: @activeProfile@
+
+  # ----------------------------------------
+  # Cache
+  # ----------------------------------------
+
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+  # ----------------------------------------
+  # JMX
+  # ----------------------------------------
+
+  jmx:
+    default-domain: trini
+
+
+  # ----------------------------------------
+  # JACKSON CONFIGURATION
+  # ----------------------------------------
+
+  jackson:
+    #This does no work with LocalDateTime/LocalDate - Need to use JSONConfiguration
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    time-zone: UTC
+
+
+  # ----------------------------------------
+  # ACTUATOR
+  # ----------------------------------------
+
+management:
+  auditevents:
+    enabled: true
+  health:
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+      threshold: 10MB
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"

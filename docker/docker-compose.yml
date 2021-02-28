@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  trini:
+    restart: always
+    image: mysql:5.7
+    ports:
+      - 3307:3306
+    environment:
+      #Default root password
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: 'user'
+      #Super user password
+      MYSQL_PASSWORD: 'password'
+      #Database name
+      MYSQL_DATABASE: trini
+      TZ: IST
+    volumes:
+      # Named volume
+      - trini_mysql-volume:/mysql/data
+
+volumes:
+  trini_mysql-volume:
+    driver: local
+    external: false
