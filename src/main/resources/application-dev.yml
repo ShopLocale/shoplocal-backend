@@ -1,0 +1,44 @@
+# ===================================================================
+# SPRING BOOT PROPERTIES FOR DEV ENV.
+#
+# ===================================================================
+
+spring:
+  # ----------------------------------------
+  # ADD EXTERNAL CONFIG FILES FROM CLASSPATH
+  # https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/boot-features-external-config.html
+  # ----------------------------------------
+  config:
+    name: application-additional-config
+    additional-location: classpath:dev/additional-properties-dev.yml
+
+  # ----------------------------------------
+  # CONFIGURE DATA SOURCES
+  # ----------------------------------------
+  datasource:
+    continue-on-error: false
+    generate-unique-name: true
+    url: jdbc:mysql://localhost:3306/trini?serverTimezone=UTC
+    username: neo
+    password: trinity@123
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  #Generic JPA Hibernate properties
+  jpa:
+    hibernate:
+      #create, create-drop,update,none
+      ddl-auto: create-drop
+      show-sql: true
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      generate_statistics: true
+
+
+  # ----------------------------------------
+  # DEV TOOL CONFIGURATION
+  # ----------------------------------------
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true

@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "66b93013-9f8a-4cfe-b6cc-334b2e9cf651",
+		"name": "T",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "Create Shop",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"address-line-1\": \"FC Block 13\",\n    \"address-line-2\": \"PNB Road\",\n    \"address-type\": \"Main\",\n    \"city\": \"Meerut\",\n    \"contact-number\": \"875454707\",\n    \"full-name\": \"Shop address\",\n    \"landmark\": \"Main Market\",\n    \"pincode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\":\"28.9551864\",\n    \"longitude\":\"77.7455757\"\n  },\n  \"category\": \"Bank\",\n  \"image-url\": \"ss://url\",\n  \"is-shop-active\": true,\n  \"seller\": {\n    \"account\": {\n      \"account-active\": true,\n      \"user-contact-number\": \"8754547074\",\n      \"user-role-name\": \"Seller\"\n    },\n    \"first-name\": \"Sagar\",\n    \"last-name\": \"Jain\"\n  },\n  \"service-type\": \"Pickup\",\n  \"shop-name\": \"Punjab National Bank\",\n  \"shop-phone-number\": \"8754547074\",\n  \"shortened-shop-uri\": \"pnb\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shop under seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"address-line-1\": \"Old address\",\n    \"address-line-2\": \"The absolute gym Road\",\n    \"address-type\": \"Main\",\n    \"city\": \"Meerut\",\n    \"contact-number\": \"8754547079\",\n    \"full-name\": \"Shop address\",\n    \"landmark\": \"Main Market\",\n    \"pincode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\":\"28.9494509\",\n    \"longitude\":\"77.747575\"\n  },\n  \"category\": \"Bank\",\n  \"image-url\": \"ss://url\",\n  \"is-shop-active\": false,\n  \"seller\": {\n    \"user-id\": \"84e61f6f-2fe9-44c8-9e2e-389bcf0c09ec\"\n  },\n  \"service-type\": \"Pickup\",\n  \"shop-name\": \"Old The absolute gym\",\n  \"shop-phone-number\": \"8754547079\",\n  \"shortened-shop-uri\": \"oldtag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find shop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7ab62aa1-38cc-4dd4-b9ef-c0a30eed1b31",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find shop Pincode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop/?latitude=28.95&longitude=77.75&pinCode=250004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop",
+								""
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "28.95"
+								},
+								{
+									"key": "longitude",
+									"value": "77.75"
+								},
+								{
+									"key": "pinCode",
+									"value": "250004"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "Craete Seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"account\": {\n    \"account-active\": true,\n    \"password\": \"my_pass\"\n  },\n  \"email\": \"s@s.com\",\n  \"first-name\": \"Sagar\",\n  \"last-name\": \"Jain\",\n  \"shop\": [{\n    \"active\": true,\n    \"address\": {\n      \"address-line-1\": \"FC, Block 13\",\n      \"address-line-2\": \"Thoraipakkam\",\n      \"address-type\": \"home\",\n      \"city\": {\n        \"city-id\": \"b1a721fe-fb57-47cc-9ecb-7b8036216a7c\"\n      },\n      \"contact-number\": \"8754547074\",\n      \"full-name\": \"my_shop\",\n      \"landmark\": \"OPP\",\n      \"pincode\": \"250004\",\n      \"state\": {\n        \"state-id\": \"4b9b5333-ce1c-4e40-a8b1-2f1bbe95781b\"\n      }\n    },\n    \"contact-number\": \"8754547074\",\n    \"image\": \"ss\",\n    \"name\": \"ABC Enterprise\",\n    \"service-type\": \"Pickup\",\n    \"shop-category\": {\n      \"type\": \"general\"\n    },\n    \"unique-name\": \"abcd\"\n  }],\n  \"user-contact-number\": \"8754547074\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/seller-management/v1/seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"seller-management",
+								"v1",
+								"seller"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": false,\n  \"description\": \"Noodles\",\n  \"image\": \"string\",\n  \"metric\": \"pack\",\n  \"name\": \"Maggi\",\n  \"price\": 20,\n  \"quantity\": 1,\n  \"shop\": {\n    \"shop-id\": \"7ab62aa1-38cc-4dd4-b9ef-c0a30eed1b31\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Min",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": true,\n  \"image\": \"string\",\n  \"name\": \"Maggi 400gm\",\n  \"price\": 40,\n  \"shop\": {\n    \"shop-id\": \"7ab62aa1-38cc-4dd4-b9ef-c0a30eed1b31\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "dbb85269-18e1-444f-975a-f3086285dccf",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "52e26c2e-4350-4277-af88-f2e1d62084a8",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"description\": \"Noodles Yummy\",\n    \"image\": \"sssssssss\",\n    \"metric\": \"pack\",\n    \"name\": \"TopRamen\",\n    \"price\": 10,\n    \"product-id\": \"52e26c2e-4350-4277-af88-f2e1d62084a8\",\n    \"quantity\": 1.0,\n    \"shop\": {\n        \"shop-id\": \"7c08051e-4774-4688-9fe3-daebf1575b80\",\n        \"shop-name\": \"A B C Enterprise\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
