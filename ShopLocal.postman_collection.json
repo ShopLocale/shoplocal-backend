@@ -1,0 +1,659 @@
+{
+	"info": {
+		"_postman_id": "66b93013-9f8a-4cfe-b6cc-334b2e9cf651",
+		"name": "ShopLocal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "Create Shop & Seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shopName\": \"Punjab National Bank\",\n    \"shortenedShopUri\": \"pnb\",\n    \"serviceType\": \"Pickup\",\n    \"category\": \"Bank\",\n    \"image\": \"ss://url\",\n    \"active\": true,\n    \"address\": {\n        \"addressLine1\": \"FC Block 13\",\n        \"addressLine2\": \"PNB Road\",\n        \"city\": \"Meerut\",\n        \"mobileNumber\": \"875454707\",\n        \"name\": \"Shop address\",\n        \"landmark\": \"Main Market\",\n        \"pinCode\": \"250004\",\n        \"state\": \"Uttar Pradesh\",\n        \"latitude\": \"28.9551864\",\n        \"longitude\": \"77.7455757\"\n    },\n    \"seller\": {\n        \"email\": \"satycool16@gmail.com\",\n        \"firstName\": \"Sagar\",\n        \"lastName\": \"Jain\",\n        \"mobileNumber\": \"8754547074\",\n        \"active\": true\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shop under seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"addressLine1\": \"FC Block 13\",\n    \"addressLine2\": \"PNB Road\",\n    \"city\": \"Meerut\",\n    \"mobileNumber\": \"875454707\",\n    \"name\": \"Shop address\",\n    \"landmark\": \"Main Market\",\n    \"pinCode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\":\"28.9551864\",\n    \"longitude\":\"77.7455757\"\n  },\n  \"category\": \"Bank\",\n  \"image\": \"ss://url\",\n  \"active\": true,\n  \"seller\": {\n    \"sellerId\": \"71887454-bf16-46d3-b1c0-9810e6e2f93e\"\n  },\n  \"serviceType\": \"Pickup\",\n  \"shopName\": \"Punjab National Bank\",\n  \"shortenedShopUri\": \"pnb\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find shop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a45e76f0-c7c6-4c89-b401-47c45337a195",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find shop Pincode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop/?latitude=28.95&longitude=77.75&pinCode=250004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop",
+								""
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "28.95"
+								},
+								{
+									"key": "longitude",
+									"value": "77.75"
+								},
+								{
+									"key": "pinCode",
+									"value": "250004"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "Create Seller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"satycool16@gmail.com\",\n  \"firstName\": \"Sagar\",\n  \"lastName\": \"Jain\",\n  \"mobileNumber\": \"8754547074\",\n  \"active\": true\n  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/seller-management/v1/seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"seller-management",
+								"v1",
+								"seller"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": false,\n  \"description\": \"Noodles\",\n  \"image\": \"string\",\n  \"metric\": \"pack\",\n  \"name\": \"Maggi\",\n  \"price\": 20,\n  \"size\": 1,\n  \"shop\": {\n    \"shopId\": \"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Min",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": true,\n  \"image\": \"string\",\n  \"name\": \"Maggi 400gm\",\n  \"price\": 40,\n  \"shop\": {\n    \"shopId\": \"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3125bb0c-0478-46b9-b362-63c721d51f50",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "52e26c2e-4350-4277-af88-f2e1d62084a8",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": true,\n    \"description\": \"Noodles\",\n    \"image\": \"string\",\n    \"metric\": \"pack\",\n    \"name\": \"Maggi\",\n    \"price\": 20.0,\n    \"productId\": \"3125bb0c-0478-46b9-b362-63c721d51f50\",\n    \"size\": 1.0,\n    \"shop\": {\n        \"shopId\": \"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product-management/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product-management",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"satycool16@gmail.com\",\n  \"firstName\": \"SagarC\",\n  \"lastName\": \"JainC\",\n  \"mobileNumber\": \"8754547070\",\n  \"active\": true\n  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer-management/v1/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer-management",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer-management/v1/customer/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer-management",
+								"v1",
+								"customer",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "75292376-4842-4ee6-bb3f-bb25b41522fa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"addressLine1\": \"769 Sec-8\",\n    \"addressLine2\": \"Main Road\",\n    \"city\": \"Meerut\",\n    \"mobileNumber\": \"8754547074\",\n    \"name\": \"mom\",\n    \"landmark\": \"Main Market\",\n    \"pinCode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\": \"28.9551864\",\n    \"longitude\": \"77.7455757\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer-management/v1/customer/:customerId/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer-management",
+								"v1",
+								"customer",
+								":customerId",
+								"address"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "s",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"shop\":{\n    \"shopId\":\"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n},\n\"customer\":{\n    \"customerId\":\"75292376-4842-4ee6-bb3f-bb25b41522fa\"\n},\n\"orderType\":\"Delivery\",\n\"address\":{\n    \"addressId\":\"3be30c5e-7ab7-4a96-9e19-603cb8677748\"\n},\n\"totalAmount\":500,\n\"discountAmount\":50,\n\"deliveryCharge\": 20,\n\"payableAmount\":470,\n\"orderItems\":[\n    {\n      \"product\": {\n        \"description\": \"desc\",\n        \"image\": \"string\",\n        \"metric\": \"string\",\n        \"name\": \"maggie\",\n        \"price\": 10,\n        \"size\": 0\n      },\n      \"quantity\": 3\n    }\n]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-management/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-management",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": {\n        \"addressId\": \"32c5103b-d9ff-4fa7-a7ee-76c50b2bbb22\"\n    },\n    \"customer\": {\n        \"userId\": \"02dce8d3-0967-4c2c-aed4-482054b27365\"\n    },\n    \"discountAmount\": 50.0,\n    \"orderId\": \"b634605f-4945-43c4-9a57-49db492953b9\",\n    \"orderItems\": [\n        {\n            \"orderItemId\": \"1a0bc2db-66a0-4c22-9d64-16cd613d5d03\",\n            \"productName\": \"ABC\",\n            \"productPrice\": 200.0,\n            \"productQuantity\": 2.0\n        },\n        {\n            \"productName\": \"ABCDESSSSS\",\n            \"productPrice\": 100.0,\n            \"productQuantity\": 1.0\n        }\n    ],\n    \"orderState\": \"Created\",\n    \"orderType\": \"Delivery\",\n    \"payableAmount\": 470.0,\n    \"shop\": {\n        \"shopId\": \"7085f86c-9d6b-43bf-80da-29c0e688856c\"\n    },\n    \"deliveryCharge\": 20.0,\n    \"totalAmount\": 500.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-management/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-management",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order-management/v1/order/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-management",
+								"v1",
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5e8aec3b-5a56-45ac-909e-8c6a6f52ffed"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders by Customer Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order-management/v1/order/customer/:customerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-management",
+								"v1",
+								"order",
+								"customer",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "02dce8d3-0967-4c2c-aed4-482054b27365"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders by Shop Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order-management/v1/order/shop/:shopId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-management",
+								"v1",
+								"order",
+								"shop",
+								":shopId"
+							],
+							"variable": [
+								{
+									"key": "shopId",
+									"value": "7085f86c-9d6b-43bf-80da-29c0e688856c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
