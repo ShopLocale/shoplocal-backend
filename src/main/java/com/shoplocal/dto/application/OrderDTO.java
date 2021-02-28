@@ -8,6 +8,8 @@ import com.shoplocal.dto.minimal.CustomerMinimalDTO;
 import com.shoplocal.dto.minimal.ShopMinimalDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 import java.util.HashSet;
@@ -37,7 +39,7 @@ public class OrderDTO extends BaseDTO {
 
     private Double payableAmount;
 
-    private Set<OrderItemDTO> orderItems = new HashSet<>();
+    private List<OrderItemDTO> orderItems = new ArrayList<>();
 
     private OrderState orderState;
 

@@ -1,6 +1,10 @@
 package com.shoplocal.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shoplocal.dto.constant.OrderState;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -27,6 +31,8 @@ public class Order extends BaseEntity{
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Type(type = "uuid-char")
+    @JsonProperty("orderId")
+    @ApiModelProperty(value = "orderId")
     UUID id;
 
     @EqualsAndHashCode.Exclude
@@ -55,7 +61,7 @@ public class Order extends BaseEntity{
     private Double payableAmount;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<OrderItem> orderItems = new HashSet<>();
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     @Enumerated(value = EnumType.STRING)
     private OrderState orderState;

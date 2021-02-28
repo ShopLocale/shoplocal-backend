@@ -43,7 +43,7 @@ public class ShopController {
       @ApiParam(value = "Shop id") @PathVariable(value = "id", required = false) String id) {
     return ResponseEntity.status(HttpStatus.OK)
         .contentType(MediaType.APPLICATION_JSON)
-        .body(shopConverter.map(shopService.findShop(id)));
+        .body(shopService.findShop(id));
   }
 
   @ApiOperation(
