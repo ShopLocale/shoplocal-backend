@@ -47,7 +47,7 @@ public class SellerController {
       @ApiParam(value = "Seller id") @PathVariable(value = "id", required = false) String id) {
     return ResponseEntity.status(HttpStatus.OK)
         .contentType(MediaType.APPLICATION_JSON)
-        .body(sellerConverter.map(sellerService.findSellerById(id)));
+        .body(sellerService.findSellerById(id));
   }
 
   @ApiOperation(

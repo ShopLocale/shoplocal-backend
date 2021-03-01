@@ -4,6 +4,7 @@ import com.shoplocal.dto.application.OrderDTO;
 import com.shoplocal.dto.application.OrderItemDTO;
 import com.shoplocal.entity.Order;
 import com.shoplocal.entity.OrderItem;
+import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,10 +27,10 @@ public class OrderConverter implements IEntityConverter<OrderDTO, Order> {
 
     @Override
     public Order map(OrderDTO source) {
-        Set<OrderItem> orderItems = source.getOrderItems()
+        List<OrderItem> orderItems = source.getOrderItems()
                 .stream()
                 .map(orderItemDTO -> orderItemConverter.map(orderItemDTO))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
 
         Order order = modelMapper.map(source, Order.class);
         order.setOrderItems(orderItems);
@@ -38,10 +39,10 @@ public class OrderConverter implements IEntityConverter<OrderDTO, Order> {
 
     @Override
     public OrderDTO map(Order target) {
-        Set<OrderItemDTO> orderItemDTOS = target.getOrderItems()
+        List<OrderItemDTO> orderItemDTOS = target.getOrderItems()
                 .stream()
                 .map(orderItem -> orderItemConverter.map(orderItem))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
 
         OrderDTO orderDTO = modelMapper.map(target, OrderDTO.class);
         orderDTO.setOrderItems(orderItemDTOS);
