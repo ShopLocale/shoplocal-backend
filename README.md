@@ -8,12 +8,13 @@ Google Doc Ref. https://docs.google.com/document/d/1pVFoGhNqNvAy361JCAAR8zNfrH-w
 ### Start the DB
 ```
 cd docker
-docker-compose up -d
+sudo docker-compose up -d
 ```
 (Create trini db if not exists)
 ```
+sudo docker exec -it shoplocal_trini_1 /bin/bash
 mysql -u root -p
-CREATE DATABASE IF NOT EXISTS dalm;
+CREATE DATABASE IF NOT EXISTS trini;
 ```
 Change application yaml for the very first application run to populate data from import.sql
 ```

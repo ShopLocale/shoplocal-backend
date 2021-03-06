@@ -23,13 +23,13 @@ public class OrderDTO extends BaseDTO {
     @ApiModelProperty(value = "orderId")
     private UUID id;
 
-    private ShopMinimalDTO shop;
+    private ShopDTO shop;
 
     private CustomerMinimalDTO customer;
 
     private String orderType;
 
-    private AddressMinimalDTO address;
+    private AddressDTO address;
 
     private Double totalAmount;
 

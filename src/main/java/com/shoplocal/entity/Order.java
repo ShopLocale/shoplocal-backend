@@ -37,7 +37,7 @@ public class Order extends BaseEntity{
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shop_id", nullable = false)
     private Shop shop;
 
@@ -51,7 +51,7 @@ public class Order extends BaseEntity{
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 

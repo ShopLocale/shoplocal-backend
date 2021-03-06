@@ -100,7 +100,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `shop` WRITE;
 /*!40000 ALTER TABLE `shop` DISABLE KEYS */;
-INSERT INTO `shop` VALUES ('a45e76f0-c7c6-4c89-b401-47c45337a195', '', 'Bank', '2021-02-26 18:41:11.931174', 'ss://url', '2021-02-26 18:41:11.931174', 'Pickup', 'Punjab National Bank', 'pnb', '8d7d4d74-da31-430a-9894-ad573d344310', '71887454-bf16-46d3-b1c0-9810e6e2f93e');
+INSERT INTO `shop` VALUES ('a45e76f0-c7c6-4c89-b401-47c45337a195', '', 'Bank', '2021-02-26 18:41:11.931174', 'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/clothing.jpg?alt=media&token=83f80592-d462-44b2-b264-ea53062bfdae', '2021-02-26 18:41:11.931174', 'Pickup', 'Punjab National Bank', 'pnb', '8d7d4d74-da31-430a-9894-ad573d344310', '71887454-bf16-46d3-b1c0-9810e6e2f93e');
 /*!40000 ALTER TABLE `shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
