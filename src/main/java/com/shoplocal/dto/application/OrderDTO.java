@@ -8,6 +8,7 @@ import com.shoplocal.dto.minimal.CustomerMinimalDTO;
 import com.shoplocal.dto.minimal.ShopMinimalDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
@@ -43,4 +44,7 @@ public class OrderDTO extends BaseDTO {
 
     private OrderState orderState;
 
+    private LocalDateTime createdDate;
+
+    private LocalDateTime lastModifiedDate;
 }

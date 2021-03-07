@@ -3,6 +3,7 @@ package com.shoplocal.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shoplocal.dto.constant.OrderState;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
@@ -11,6 +12,8 @@ import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.validation.annotation.Validated;
 
@@ -65,5 +68,13 @@ public class Order extends BaseEntity{
 
     @Enumerated(value = EnumType.STRING)
     private OrderState orderState;
+
+    @Column(nullable = false, updatable = false)
+    @CreatedDate
+    LocalDateTime createdDate;
+
+    @Column(nullable = false)
+    @LastModifiedDate
+    LocalDateTime lastModifiedDate;
 }
 
