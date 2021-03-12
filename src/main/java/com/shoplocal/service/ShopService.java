@@ -21,5 +21,7 @@ public interface ShopService {
 
   ShopDTO findShop(String id);
 
-  List<ShopDTO> findNearbyShops(String latitude, String longitude, String pinCode);
+  List<ShopDTO> findNearbyShops(Double latitude, Double longitude, String pinCode);
+
+  Boolean isShopServiceable(String id, Double latitude, Double longitude);
 }

@@ -94,11 +94,24 @@ public class ShopController {
           produces = "application/json",
           consumes = "application/json")
   @GetMapping(value = "/shop/", produces = "application/json")
-  public ResponseEntity<?> findNearbyShop(@RequestParam("latitude") String latitude,
-                                          @RequestParam("longitude") String longitude,
+  public ResponseEntity<?> findNearbyShop(@RequestParam("latitude") Double latitude,
+                                          @RequestParam("longitude") Double longitude,
                                           @RequestParam(value = "pinCode", required = false) String pinCode) {
     return ResponseEntity.status(HttpStatus.OK)
             .contentType(MediaType.APPLICATION_JSON)
             .body(shopService.findNearbyShops(latitude, longitude, pinCode));
+  }
+
+  @ApiOperation(
+          value = "Check if shop is serviceable.",
+          notes = "Check if shop is serviceable against the location",
+          response = Boolean.class)
+  @GetMapping(value = "/shop/{id}/serviceable")
+  public ResponseEntity<?> checkShopServiceability(
+          @ApiParam(value = "ID of the shop") @PathVariable(value = "id") String shopId,
+          @RequestParam("latitude") Double latitude,
+          @RequestParam("longitude") Double longitude) {
+    return ResponseEntity.status(HttpStatus.OK)
+            .body(shopService.isShopServiceable(shopId, latitude, longitude));
   }
 }

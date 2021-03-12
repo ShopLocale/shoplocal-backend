@@ -69,6 +69,8 @@ public class Shop extends BaseEntity {
   @Size(max = 20, message = "Pickup/Delivery")
   private String serviceType;
 
+  private Double deliveryCharge;
+
   @Column(nullable = false, updatable = false)
   @CreatedDate
   @EqualsAndHashCode.Exclude

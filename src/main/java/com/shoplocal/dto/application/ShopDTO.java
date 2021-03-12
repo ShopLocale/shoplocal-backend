@@ -37,4 +37,6 @@ public class ShopDTO extends BaseDTO {
   private String serviceType;
 
   private Double distance;
+
+  private Double deliveryCharge;
 }

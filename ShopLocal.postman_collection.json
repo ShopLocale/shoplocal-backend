@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"shopName\": \"Punjab National Bank\",\n    \"shortenedShopUri\": \"pnb\",\n    \"serviceType\": \"Pickup\",\n    \"category\": \"Bank\",\n    \"image\": \"ss://url\",\n    \"active\": true,\n    \"address\": {\n        \"addressLine1\": \"FC Block 13\",\n        \"addressLine2\": \"PNB Road\",\n        \"city\": \"Meerut\",\n        \"mobileNumber\": \"875454707\",\n        \"name\": \"Shop address\",\n        \"landmark\": \"Main Market\",\n        \"pinCode\": \"250004\",\n        \"state\": \"Uttar Pradesh\",\n        \"latitude\": \"28.9551864\",\n        \"longitude\": \"77.7455757\"\n    },\n    \"seller\": {\n        \"email\": \"satycool16@gmail.com\",\n        \"firstName\": \"Sagar\",\n        \"lastName\": \"Jain\",\n        \"mobileNumber\": \"8754547074\",\n        \"active\": true\n    }\n}",
+							"raw": "{\n    \"shopName\": \"Punjab National Bank\",\n    \"shortenedShopUri\": \"pnb\",\n    \"serviceType\": \"Pickup\",\n    \"category\": \"Bank\",\n    \"image\": \"ss://url\",\n    \"deliveryCharge\":50.0,\n    \"active\": true,\n    \"address\": {\n        \"addressLine1\": \"FC Block 13\",\n        \"addressLine2\": \"PNB Road\",\n        \"city\": \"Meerut\",\n        \"mobileNumber\": \"875454707\",\n        \"name\": \"Shop address\",\n        \"landmark\": \"Main Market\",\n        \"pinCode\": \"250004\",\n        \"state\": \"Uttar Pradesh\",\n        \"latitude\": \"28.9551864\",\n        \"longitude\": \"77.7455757\"\n    },\n    \"seller\": {\n        \"email\": \"satycool16@gmail.com\",\n        \"firstName\": \"Sagar\",\n        \"lastName\": \"Jain\",\n        \"mobileNumber\": \"8754547074\",\n        \"active\": true\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -59,7 +59,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"address\": {\n    \"addressLine1\": \"FC Block 13\",\n    \"addressLine2\": \"PNB Road\",\n    \"city\": \"Meerut\",\n    \"mobileNumber\": \"875454707\",\n    \"name\": \"Shop address\",\n    \"landmark\": \"Main Market\",\n    \"pinCode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\":\"28.9551864\",\n    \"longitude\":\"77.7455757\"\n  },\n  \"category\": \"Bank\",\n  \"image\": \"ss://url\",\n  \"active\": true,\n  \"seller\": {\n    \"sellerId\": \"71887454-bf16-46d3-b1c0-9810e6e2f93e\"\n  },\n  \"serviceType\": \"Pickup\",\n  \"shopName\": \"Punjab National Bank\",\n  \"shortenedShopUri\": \"pnb\"\n}",
+							"raw": "{\n  \"address\": {\n    \"addressLine1\": \"FC Block 13\",\n    \"addressLine2\": \"PNB Road\",\n    \"city\": \"Meerut\",\n    \"mobileNumber\": \"875454707\",\n    \"name\": \"Shop address\",\n    \"landmark\": \"Main Market\",\n    \"pinCode\": \"250004\",\n    \"state\": \"Uttar Pradesh\",\n    \"latitude\":\"28.9551864\",\n    \"longitude\":\"77.7455757\"\n  },\n  \"category\": \"Bank\",\n  \"image\": \"ss://url\",\n  \"active\": true,\n  \"seller\": {\n    \"sellerId\": \"71887454-bf16-46d3-b1c0-9810e6e2f93e\"\n  },\n  \"serviceType\": \"Pickup\",\n  \"shopName\": \"Punjab National Bank\",\n  \"deliveryCharge\":50.0,\n  \"shortenedShopUri\": \"pnb\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,12 +88,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/shop-management/v1/shop/:id",
-							"protocol": "http",
+							"raw": "{{t_server_url}}/shop-management/v1/shop/:id",
 							"host": [
-								"localhost"
+								"{{t_server_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"shop-management",
 								"v1",
@@ -117,7 +115,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/shop-management/v1/shop/?latitude=28.95&longitude=77.75&pinCode=250004",
+							"raw": "http://localhost:8080/shop-management/v1/shop/?latitude=28.9494509&longitude=77.747575&pinCode=250004",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -132,15 +130,54 @@
 							"query": [
 								{
 									"key": "latitude",
-									"value": "28.95"
+									"value": "28.9494509"
 								},
 								{
 									"key": "longitude",
-									"value": "77.75"
+									"value": "77.747575"
 								},
 								{
 									"key": "pinCode",
 									"value": "250004"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Shop Serviceability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop-management/v1/shop/:shopId/serviceable?latitude=28.9736792&longitude=77.7113675",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop-management",
+								"v1",
+								"shop",
+								":shopId",
+								"serviceable"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "28.9736792"
+								},
+								{
+									"key": "longitude",
+									"value": "77.7113675"
+								}
+							],
+							"variable": [
+								{
+									"key": "shopId",
+									"value": "a45e76f0-c7c6-4c89-b401-47c45337a195"
 								}
 							]
 						}
@@ -245,7 +282,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"active\": true,\n  \"image\": \"string\",\n  \"name\": \"Maggi 400gm\",\n  \"price\": 40,\n  \"shop\": {\n    \"shopId\": \"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n  }\n}",
+							"raw": "{\n  \"active\": true,\n  \"image\": \"https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/Books.jpeg?alt=media&token=49bbed96-dc35-4745-acac-7bc852095afe\",\n  \"name\": \"Subtle Art of not giving a f**k\",\n  \"price\": 199,\n  \"shop\": {\n    \"shopId\": \"a45e76f0-c7c6-4c89-b401-47c45337a195\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -626,7 +663,7 @@
 							"variable": [
 								{
 									"key": "shopId",
-									"value": "7085f86c-9d6b-43bf-80da-29c0e688856c"
+									"value": "a45e76f0-c7c6-4c89-b401-47c45337a195"
 								}
 							]
 						}
@@ -654,6 +691,12 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "T_server",
+			"value": "http://localhost:8080"
 		}
 	]
 }
