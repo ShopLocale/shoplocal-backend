@@ -31,5 +31,5 @@ mysqldump -u root -p --port=3307 --protocol=tcp --host=localhost trini --extende
 ```
 #### Products
 ```
-mysqldump -u root -p --port=3307 --protocol=tcp --host=localhost trini products --extended-insert=FALSE --no-create-info > import.sql
+mysqldump -u root -p --port=3307 --protocol=tcp --host=localhost trini product --extended-insert=FALSE --no-create-info > import.sql
 ```

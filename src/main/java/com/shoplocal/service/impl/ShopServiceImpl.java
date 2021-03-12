@@ -81,17 +81,27 @@ public class ShopServiceImpl implements ShopService {
   }
 
   @Override
-  public List<ShopDTO> findNearbyShops(String latitude, String longitude, String pinCode) {
+  public List<ShopDTO> findNearbyShops(Double latitude, Double longitude, String pinCode) {
     log.info("Find Shop in pincode : {}", pinCode);
     List<Shop> shopList;
     if (StringUtils.isBlank(pinCode))
       shopList = shopRepository.findAll();
     else
       shopList = shopRepository.findByPin(pinCode);
-    DistanceHelper.updateShopList(new Point(Double.parseDouble(latitude), Double.parseDouble(longitude)), shopList, 1);
+    DistanceHelper.updateShopList(new Point(latitude, longitude), shopList, 3);
     return shopList.stream()
             .map(element -> shopConverter.map(element)).collect(
                     Collectors.toList());
+  }
+
+  @Override
+  public Boolean isShopServiceable(String id, Double latitude, Double longitude){
+    Shop shop = shopRepository
+            .findById(UUID.fromString(id))
+            .orElseThrow(() -> new NoSuchElementException("Shop with ID " + id + " not found"));
+    return DistanceHelper.isWithinAllowedDistance(
+            new Point(latitude, longitude),
+            shop);
   }
 
 }

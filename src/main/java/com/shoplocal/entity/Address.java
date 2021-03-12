@@ -85,6 +85,7 @@ public class Address extends BaseEntity {
   @LastModifiedDate
   private LocalDateTime lastModifiedDate;
 
+  // TODO: Need to change latitude and longitude to Double
   @NotEmpty(message = "latitude is blank or empty")
   @Column(nullable = false)
   private String latitude;

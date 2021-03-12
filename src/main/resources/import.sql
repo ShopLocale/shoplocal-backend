@@ -100,7 +100,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `shop` WRITE;
 /*!40000 ALTER TABLE `shop` DISABLE KEYS */;
-INSERT INTO `shop` VALUES ('a45e76f0-c7c6-4c89-b401-47c45337a195', '', 'Bank', '2021-02-26 18:41:11.931174', 'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/clothing.jpg?alt=media&token=83f80592-d462-44b2-b264-ea53062bfdae', '2021-02-26 18:41:11.931174', 'Pickup', 'Punjab National Bank', 'pnb', '8d7d4d74-da31-430a-9894-ad573d344310', '71887454-bf16-46d3-b1c0-9810e6e2f93e');
+INSERT INTO `shop` VALUES ('a45e76f0-c7c6-4c89-b401-47c45337a195', '', 'Grocery', '2021-02-26 18:41:11.931174',50.0, 'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/clothing.jpg?alt=media&token=83f80592-d462-44b2-b264-ea53062bfdae', '2021-02-26 18:41:11.931174', 'Pickup', 'Test local store', 'tls', '8d7d4d74-da31-430a-9894-ad573d344310', '71887454-bf16-46d3-b1c0-9810e6e2f93e');
 /*!40000 ALTER TABLE `shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,15 +111,19 @@ UNLOCK TABLES;
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('3125bb0c-0478-46b9-b362-63c721d51f50','\0','2021-02-27 15:59:16.510912','Noodles','string','2021-02-27 15:59:16.510912','pack','Maggi',20,1,'a45e76f0-c7c6-4c89-b401-47c45337a195');
-INSERT INTO `product` VALUES ('ced576d0-5630-4377-a481-e3f1ec473a6a','','2021-02-27 16:00:15.367366',NULL,'string','2021-02-27 16:00:15.367366',NULL,'Maggi 400gm',40,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('3125bb0c-0478-46b9-b362-63c721d51f50','\0','2021-02-27 15:59:16.510912','Noodles','https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/grocery.jpg?alt=media&token=439e7a0e-1244-48b8-9329-ec1d39ac3786','2021-02-27 15:59:16.510912','pack','Maggi',20,1,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('ced576d0-5630-4377-a481-e3f1ec473a6a','','2021-02-27 16:00:15.367366',NULL,'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/grocery.jpg?alt=media&token=439e7a0e-1244-48b8-9329-ec1d39ac3786','2021-02-27 16:00:15.367366',NULL,'Maggi 400gm',40,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('3b8d398e-96ec-48b4-9e7f-9fa04eafa141','','2021-03-07 16:44:05.955290',NULL,'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/clothing.jpg?alt=media&token=83f80592-d462-44b2-b264-ea53062bfdae','2021-03-07 16:44:05.955290',NULL,'T-Shirt Denim XL',1000,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('44712033-d24d-43a4-98e9-b4aa0a6ba241','','2021-03-07 16:46:15.570905',NULL,'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/Books.jpeg?alt=media&token=49bbed96-dc35-4745-acac-7bc852095afe','2021-03-07 16:46:15.570905',NULL,'Subtle Art of not giving a f**k',199,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('bd03ab39-0501-435c-a2d3-c6e0bb66021b','','2021-03-07 16:45:28.825952',NULL,'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/footwear.jpg?alt=media&token=1cda552a-748f-474d-9bc8-53865b61496c','2021-03-07 16:45:28.825952',NULL,'Puma Shoe 9',2999,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `product` VALUES ('e26fd56b-a79f-4ff2-b345-f8cabcc1537c','','2021-03-07 16:43:26.590843',NULL,'https://firebasestorage.googleapis.com/v0/b/trini-flutter.appspot.com/o/grocery.jpg?alt=media&token=439e7a0e-1244-48b8-9329-ec1d39ac3786','2021-03-07 16:43:26.590843',NULL,'Pepsi 600ml',40,NULL,'a45e76f0-c7c6-4c89-b401-47c45337a195');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES ('5e8aec3b-5a56-45ac-909e-8c6a6f52ffed',20, 50,'Created','Delivery',470,500,'3be30c5e-7ab7-4a96-9e19-603cb8677748','75292376-4842-4ee6-bb3f-bb25b41522fa','a45e76f0-c7c6-4c89-b401-47c45337a195');
+INSERT INTO `orders` VALUES ('5e8aec3b-5a56-45ac-909e-8c6a6f52ffed','2021-02-27 15:59:16.510912', 20, 50,'2021-02-27 15:59:16.510912','Created','Delivery',470,500,'3be30c5e-7ab7-4a96-9e19-603cb8677748','75292376-4842-4ee6-bb3f-bb25b41522fa','a45e76f0-c7c6-4c89-b401-47c45337a195');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 

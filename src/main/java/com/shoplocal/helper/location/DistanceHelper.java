@@ -6,6 +6,8 @@ import java.util.*;
 import java.lang.*;
 
 public class DistanceHelper {
+
+    private static final Double allowedServiceDistance = 3.0;
     public static void main(String[] args) throws java.lang.Exception {
 //        User customer1 = new User("Sagar", 28.9494509,77.747575);
 //        User store1 = new User("babaBestValue", 28.9495636, 77.748111);
@@ -41,6 +43,21 @@ public class DistanceHelper {
         shopList.removeIf(shop -> !shop.getActive());
         shopList.sort(userComparator);
         shopList.forEach(shop -> System.out.println("shop:"+ shop.getShopName()+ " distance:"+shop.getDistance()));
+    }
+
+    public static Boolean isWithinAllowedDistance(Point sourcePoint, Shop shop) {
+        Double serviceDistance = distance(
+                sourcePoint.latitude,
+                sourcePoint.longitude,
+                Double.parseDouble(shop.getAddress().getLatitude()),
+                Double.parseDouble(shop.getAddress().getLongitude()));
+
+        System.out.println("serviceDistance is "+ serviceDistance);
+        System.out.println("allowedServiceDistance is "+ allowedServiceDistance);
+        if (serviceDistance < allowedServiceDistance)
+            return Boolean.TRUE;
+
+        return Boolean.FALSE;
     }
 
     private static Double distance(double lat1, double lon1, double lat2, double lon2) {
