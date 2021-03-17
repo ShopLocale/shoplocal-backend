@@ -6,6 +6,8 @@ import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -26,6 +28,7 @@ import java.util.UUID;
 @Entity
 @DynamicUpdate
 @Validated
+@Indexed
 @EntityListeners(AuditingEntityListener.class)
 public class Shop extends BaseEntity {
 
@@ -44,11 +47,13 @@ public class Shop extends BaseEntity {
   @NotEmpty(message = "Name is blank or empty")
   @Column(nullable = false)
   @Size(max = 70, message = "Maximum First Name size cannot exceed 70 characters")
+  @FullTextField(analyzer = "name")
   private String shopName;
 
   @NotEmpty(message = "Unique Name is blank or empty")
   @Column(nullable = false, unique = true)
   @Size(max = 50, message = "Maximum Last Name size cannot exceed 50 characters")
+  @FullTextField(analyzer = "name")
   private String shortenedShopUri;
 
   @EqualsAndHashCode.Exclude
@@ -64,6 +69,7 @@ public class Shop extends BaseEntity {
   private String image;
 
   @Column(nullable = true)
+  @FullTextField(analyzer = "english")
   private String category;
 
   @Size(max = 20, message = "Pickup/Delivery")

@@ -40,7 +40,16 @@ spring:
   # ----------------------------------------
 
   profiles:
-    active: @activeProfile@
+    active: local
+
+  #Generic JPA Hibernate properties
+  jpa:
+    properties:
+      hibernate:
+        search:
+          backend:
+            analysis:
+              configurer: com.shoplocal.configuration.analyzer.MyLuceneAnalysisConfigurer
 
   # ----------------------------------------
   # Cache
