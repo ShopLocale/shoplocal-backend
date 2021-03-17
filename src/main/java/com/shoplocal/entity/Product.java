@@ -6,6 +6,8 @@ import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -25,6 +27,7 @@ import java.util.UUID;
 @Entity
 @DynamicUpdate
 @Validated
+@Indexed
 @EntityListeners(AuditingEntityListener.class)
 public class Product extends BaseEntity{
 
@@ -36,6 +39,7 @@ public class Product extends BaseEntity{
 
 	@Column(nullable = false)
 	@Size(max = 60, message = "Product Name size cannot exceed 60 characters")
+	@FullTextField(analyzer = "english")
 	private String name;
 
 	@Column(nullable = false)
@@ -60,6 +64,7 @@ public class Product extends BaseEntity{
 	private String metric;
 
 	@Column(length = 100)
+	@FullTextField(analyzer = "english")
 	private String description;
 
 	@EqualsAndHashCode.Exclude

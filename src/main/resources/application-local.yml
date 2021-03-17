@@ -25,6 +25,12 @@ spring:
     validationQuery: SELECT 1
   #Generic JPA Hibernate properties
   jpa:
+    properties:
+      hibernate:
+        search:
+          backend:
+            analysis:
+              configurer: com.shoplocal.configuration.analyzer.MyLuceneAnalysisConfigurer
     hibernate:
       #create, create-drop,update,none
       ddl-auto: create-drop
